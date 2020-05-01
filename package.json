@@ -12,7 +12,9 @@
     "pact-broker": "docker run -d -p 8080:80 risingstack/pact_broker_example",
     "delete-example-pact": "curl -X DELETE http://localhost:8080/pacticipants/Zoo%20App",
     "test": "NODE_ENV=test npm-run-all test-consumer test-provider",
-    "start": "PRODUCT_SERVICE_URL='http://localhost:3001' npm-run-all --parallel server client"
+    "start": "PRODUCT_SERVICE_URL='http://localhost:3001' npm-run-all --parallel server client",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "RisingStack, Inc.",
   "dependencies": {
@@ -21,7 +23,8 @@
     "lodash": "4.17.4",
     "npm-run-all": "4.1.2",
     "request": "2.83.0",
-    "request-promise-native": "1.0.5"
+    "request-promise-native": "1.0.5",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@pact-foundation/pact-node": "5.2.1",
@@ -30,5 +33,6 @@
     "pact": "4.2.1",
     "sinon": "4.1.2",
     "sinon-chai": "2.14.0"
-  }
+  },
+  "snyk": true
 }
